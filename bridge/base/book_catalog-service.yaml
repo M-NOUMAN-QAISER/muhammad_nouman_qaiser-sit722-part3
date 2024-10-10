@@ -1,0 +1,23 @@
+# check if there is at least one published port
+
+#! book_catalog-service.yaml
+# Generated code, do not edit
+apiVersion: v1
+kind: Service
+metadata:
+    name: book-catalog-published
+    namespace: nomi
+    labels:
+        com.docker.compose.project: nomi
+        com.docker.compose.service: book_catalog
+spec:
+    selector:
+        com.docker.compose.project: nomi
+        com.docker.compose.service: book_catalog
+    ports:
+        - name: book-catal-8080
+          port: 8080
+          protocol: TCP
+          targetPort: book-catal-8080
+
+# check if there is at least one published port

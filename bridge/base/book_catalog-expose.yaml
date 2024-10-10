@@ -1,0 +1,18 @@
+#! book_catalog-expose.yaml
+# Generated code, do not edit
+apiVersion: v1
+kind: Service
+metadata:
+    name: book-catalog
+    namespace: nomi
+    labels:
+        com.docker.compose.project: nomi
+        com.docker.compose.service: book_catalog
+spec:
+    selector:
+        com.docker.compose.project: nomi
+        com.docker.compose.service: book_catalog
+    ports:
+        - name: book-catal-8080
+          port: 8080
+          targetPort: book-catal-8080

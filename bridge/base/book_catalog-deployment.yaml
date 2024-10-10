@@ -1,0 +1,32 @@
+#! book_catalog-deployment.yaml
+# Generated code, do not edit
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: book-catalog
+    namespace: nomi
+    labels:
+        com.docker.compose.project: nomi
+        com.docker.compose.service: book_catalog
+spec:
+    replicas: 1
+    selector:
+        matchLabels:
+            com.docker.compose.project: nomi
+            com.docker.compose.service: book_catalog
+    strategy:
+        type: Recreate
+    template:
+        metadata:
+            labels:
+                com.docker.compose.project: nomi
+                com.docker.compose.service: book_catalog
+                com.docker.compose.network.library_network: "true"
+        spec:
+            containers:
+                - name: project3-book-catalog
+                  image: nomi-book_catalog
+                  imagePullPolicy: IfNotPresent
+                  ports:
+                    - name: book-catal-8080
+                      containerPort: 8080

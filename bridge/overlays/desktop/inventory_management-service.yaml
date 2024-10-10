@@ -1,0 +1,9 @@
+#! inventory_management-service.yaml
+# Generated code, do not edit
+apiVersion: v1
+kind: Service
+metadata:
+    name: inventory-management-published
+    namespace: nomi
+spec:
+    type: LoadBalancer

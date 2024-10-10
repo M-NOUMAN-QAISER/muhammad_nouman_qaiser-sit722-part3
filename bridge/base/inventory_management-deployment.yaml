@@ -1,0 +1,32 @@
+#! inventory_management-deployment.yaml
+# Generated code, do not edit
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: inventory-management
+    namespace: nomi
+    labels:
+        com.docker.compose.project: nomi
+        com.docker.compose.service: inventory_management
+spec:
+    replicas: 1
+    selector:
+        matchLabels:
+            com.docker.compose.project: nomi
+            com.docker.compose.service: inventory_management
+    strategy:
+        type: Recreate
+    template:
+        metadata:
+            labels:
+                com.docker.compose.project: nomi
+                com.docker.compose.service: inventory_management
+                com.docker.compose.network.library_network: "true"
+        spec:
+            containers:
+                - name: project3-inventory-management
+                  image: nomi-inventory_management
+                  imagePullPolicy: IfNotPresent
+                  ports:
+                    - name: inventory--8081
+                      containerPort: 8081
